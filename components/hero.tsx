@@ -1,10 +1,12 @@
+"use client";
+
 import FileUpload from "./file-upload";
 import { Readme } from "./readmebtn";
 import { GithubBtn } from "./shad-components/buttonS";
 import { GetStartedbtn } from "./shad-components/getStartedbtn";
-import { motion } from "framer-motion";
+import { motion, easeOut, Variants } from "framer-motion";
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -15,14 +17,14 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
     transition: {
       duration: 0.5,
-      ease: "easeOut",
+      ease: easeOut, // ✅ fixed here
     },
   },
 };
@@ -64,8 +66,9 @@ export const Hero = () => {
         variants={itemVariants}
         className="text-lg text-gray-600 max-w-xl mb-8 leading-relaxed"
       >
-        Our intelligent PDF bot reads, understands, and answers questions from your documents.
-        Whether it's research papers, manuals, or reports — just upload and chat. Powered by Gemini AI.
+        Our intelligent PDF bot reads, understands, and answers questions from
+        your documents. Whether it's research papers, manuals, or reports — just
+        upload and chat. Powered by Gemini AI.
       </motion.p>
 
       <motion.main
